@@ -1,3 +1,4 @@
+@rest
 Feature: Consult users
   I want to consult the user to know their information
 

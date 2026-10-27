@@ -1,10 +1,10 @@
-package com.cedaniel200.screenplay.restapi.task;
+package com.cedaniel200.screenplay.restapi.tasks;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 
-import static com.cedaniel200.screenplay.restapi.util.SOAPService.CONSULT_BANK;
+import static com.cedaniel200.screenplay.restapi.utils.SOAPService.CONSULT_BANK;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class ConsultBank implements Task {

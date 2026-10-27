@@ -1,12 +1,12 @@
 package com.cedaniel200.screenplay.restapi.questions;
 
-import com.cedaniel200.screenplay.restapi.model.SummaryUsers;
+import com.cedaniel200.screenplay.restapi.models.SummaryUsers;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 
 import static com.cedaniel200.screenplay.restapi.userinterfaces.ReqresPage.USERS_IN_JSON_FORMAT;
-import static com.cedaniel200.screenplay.restapi.util.ConverterJson.fromJson;
+import static com.cedaniel200.screenplay.restapi.utils.ConverterJson.fromJson;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
 @Subject("The users on the web correspond to those of the service")

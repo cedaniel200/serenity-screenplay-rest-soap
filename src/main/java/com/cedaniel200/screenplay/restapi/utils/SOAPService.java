@@ -1,4 +1,4 @@
-package com.cedaniel200.screenplay.restapi.util;
+package com.cedaniel200.screenplay.restapi.utils;
 
 public enum SOAPService {
     BASE_URL("http://www.thomas-bayer.com/axis2/services"),

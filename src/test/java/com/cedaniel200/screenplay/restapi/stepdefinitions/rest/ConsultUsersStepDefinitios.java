@@ -2,10 +2,10 @@ package com.cedaniel200.screenplay.restapi.stepdefinitions.rest;
 
 import com.cedaniel200.screenplay.restapi.questions.LastResponseStatusCode;
 import com.cedaniel200.screenplay.restapi.questions.TheUsersOnTheWeb;
-import com.cedaniel200.screenplay.restapi.task.ConsultTheUsers;
+import com.cedaniel200.screenplay.restapi.tasks.ConsultTheUsers;
 import com.cedaniel200.screenplay.restapi.userinterfaces.ReqresPage;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actions.Scroll;
 

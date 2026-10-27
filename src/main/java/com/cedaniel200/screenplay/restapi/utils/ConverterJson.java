@@ -1,4 +1,4 @@
-package com.cedaniel200.screenplay.restapi.util;
+package com.cedaniel200.screenplay.restapi.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

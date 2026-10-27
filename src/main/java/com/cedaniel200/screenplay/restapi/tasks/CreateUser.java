@@ -1,11 +1,11 @@
-package com.cedaniel200.screenplay.restapi.task;
+package com.cedaniel200.screenplay.restapi.tasks;
 
-import com.cedaniel200.screenplay.restapi.model.User;
+import com.cedaniel200.screenplay.restapi.models.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 
-import static com.cedaniel200.screenplay.restapi.util.RestService.CREATE_USER;
+import static com.cedaniel200.screenplay.restapi.utils.RestService.CREATE_USER;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class CreateUser implements Task {

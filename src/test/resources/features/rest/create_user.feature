@@ -1,3 +1,4 @@
+@rest
 Feature: Create an user
   I want to create an user
 

@@ -1,15 +1,15 @@
 package com.cedaniel200.screenplay.restapi.stepdefinitions.soap;
 
 import com.cedaniel200.screenplay.restapi.questions.LastResponseStatusCode;
-import com.cedaniel200.screenplay.restapi.task.ConsultBank;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import com.cedaniel200.screenplay.restapi.tasks.ConsultBank;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
+import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
-import static com.cedaniel200.screenplay.restapi.util.SOAPService.BASE_URL;
+import static com.cedaniel200.screenplay.restapi.utils.SOAPService.BASE_URL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -18,7 +18,7 @@ public class ConsultBankStepDefinitions {
 
     private static final String CESAR = "Cesar";
 
-    @Before
+    @Before("@soap")
     public void prepareStage() {
         OnStage.setTheStage(new OnlineCast());
         theActorCalled(CESAR).whoCan(CallAnApi.at(BASE_URL.toString()));

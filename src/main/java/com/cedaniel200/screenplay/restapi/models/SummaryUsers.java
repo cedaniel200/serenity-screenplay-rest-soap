@@ -1,4 +1,4 @@
-package com.cedaniel200.screenplay.restapi.model;
+package com.cedaniel200.screenplay.restapi.models;
 
 import java.util.List;
 

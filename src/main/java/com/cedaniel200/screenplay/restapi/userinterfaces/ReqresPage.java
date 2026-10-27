@@ -2,7 +2,7 @@ package com.cedaniel200.screenplay.restapi.userinterfaces;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
-import net.thucydides.core.annotations.DefaultUrl;
+import net.serenitybdd.annotations.DefaultUrl;
 
 @DefaultUrl("https://reqres.in/")
 public class ReqresPage extends PageObject{

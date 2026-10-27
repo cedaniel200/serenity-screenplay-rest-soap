@@ -1,3 +1,4 @@
+@soap
 Feature: Consult bank
   I want to consult the bank to know their information
 
