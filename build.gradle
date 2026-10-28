@@ -34,7 +34,6 @@ repositories {
 
 dependencies {
     implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
-    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion"
 
     testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
@@ -42,6 +41,7 @@ dependencies {
     testImplementation "io.cucumber:cucumber-junit-platform-engine:$rootProject.ext.cucumberPlatformVersion"
     testImplementation "org.junit.platform:junit-platform-suite:$rootProject.ext.junitPlatformSuiteVersion"
 
+    testImplementation "org.wiremock:wiremock-standalone:3.13.2"
     testImplementation "org.assertj:assertj-core:$rootProject.ext.assertjVersion"
     testImplementation "org.slf4j:slf4j-simple:$rootProject.ext.slf4jVersion"
 }

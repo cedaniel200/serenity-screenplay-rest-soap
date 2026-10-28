@@ -1,7 +1,7 @@
 package com.cedaniel200.screenplay.restapi.stepdefinitions.soap;
 
-import com.cedaniel200.screenplay.restapi.questions.LastResponseStatusCode;
-import com.cedaniel200.screenplay.restapi.tasks.ConsultBank;
+import com.cedaniel200.screenplay.restapi.questions.TheGreeting;
+import com.cedaniel200.screenplay.restapi.tasks.SayHello;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +14,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class ConsultBankStepDefinitions {
+public class SayHelloStepDefinitions {
 
     private static final String CESAR = "Cesar";
 
@@ -24,16 +24,13 @@ public class ConsultBankStepDefinitions {
         theActorCalled(CESAR).whoCan(CallAnApi.at(BASE_URL.toString()));
     }
 
-    @When("^he consulted the bank with code (\\d+)$")
-    public void heConsultedTheBankWithCode(int codeBank) throws Exception {
-        theActorInTheSpotlight().attemptsTo(
-                ConsultBank.withCode(codeBank)
-        );
+    @When("^he says hello to (.*)$")
+    public void heSaysHelloTo(String name) {
+        theActorInTheSpotlight().attemptsTo(SayHello.to(name));
     }
 
-    @Then("^you should see the bank's information$")
-    public void youShouldSeeTheBankSInformation() throws Exception {
-        theActorInTheSpotlight().should(seeThat("last response status code is 200", LastResponseStatusCode.is(200)));
+    @Then("^he should see the greeting (.*)$")
+    public void heShouldSeeTheGreeting(String message) {
+        theActorInTheSpotlight().should(seeThat(TheGreeting.is(message)));
     }
-
 }

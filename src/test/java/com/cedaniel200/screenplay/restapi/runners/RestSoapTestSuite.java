@@ -13,7 +13,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value =
         "com.cedaniel200.screenplay.restapi.stepdefinitions.rest,"
-                + "com.cedaniel200.screenplay.restapi.stepdefinitions.soap")
+                + "com.cedaniel200.screenplay.restapi.stepdefinitions.soap,"
+                + "com.cedaniel200.screenplay.restapi.stepdefinitions.support")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "net.serenitybdd.cucumber.core.plugin.SerenityReporter,pretty")
 public class RestSoapTestSuite {
 }
