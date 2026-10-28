@@ -11,25 +11,23 @@ Pruebas de servicios con Serenity BDD y el patrón Screenplay: un flujo REST con
 [plantilla](https://github.com/cedaniel200/serenity-screenplay-template) aplicada a APIs en lugar de
 interfaces.
 
-## Qué demuestra
+## Qué incluye
+
+Tres escenarios sobre dos protocolos:
+
+| Escenario | Protocolo | Qué ejercita |
+|---|---|---|
+| `create_user` | REST | Alta de un usuario con cuerpo JSON y validación de la respuesta |
+| `consult_users` | REST | Consulta paginada, validación del código de estado y del cuerpo |
+| `consult_bank` | SOAP | Consulta a un servicio SOAP con cliente propio |
+
+Sobre esa base:
 
 - **Screenplay sin navegador para la API**: `tasks` que ejecutan `Get` y `Post`, `questions` sobre el
-  código de estado y el cuerpo de la respuesta.
+  código de estado y el contenido de la respuesta.
 - **Modelo con builder** y serialización con `@SerializedName` para el cuerpo de las peticiones.
-- **Dos protocolos**: REST con `serenity-screenplay-rest` y SOAP con un cliente propio.
 - **Evidencia visual**: `ReqresPage` abre la web del servicio y hace scroll hasta el JSON, para que
   el informe muestre la respuesta además de la petición.
-
-## Estado actual
-
-| Escenario | Estado |
-|---|---|
-| `Create an user` (REST) | **Pasa** |
-| `Consult users` (REST) | Falla: el XPath de `ReqresPage` ya no coincide con la web actual de reqres.in |
-| `Consult bank` (SOAP) | Falla: `thomas-bayer.com` ya no existe |
-
-Los dos fallos son de los servicios externos, no de la suite. Queda pendiente decidir si se
-reparan, se etiquetan como `@manual` o se retiran.
 
 ## Requisitos
 
@@ -83,8 +81,9 @@ El navegador corre en el servicio `chrome`; los tests le envían comandos por HT
 
 ## Ten en cuenta
 
-- **Depende de servicios de terceros.** `reqres.in` ya cambió una vez; `thomas-bayer.com`
-  desapareció. Los localizadores y las URLs envejecen.
+- **Dos escenarios fallan hoy contra los servicios reales.** `consult_users` porque la web de
+  reqres.in cambió y su XPath ya no coincide; `consult_bank` porque `thomas-bayer.com` ya no existe.
+  No es un fallo de la suite: son dependencias de terceros que envejecieron.
 - **El SOAP no tiene reemplazo público estable**, así que ese escenario no se puede verificar hoy.
 - **`gradle.startParameter.continueOnFailure = true`** está heredado: Gradle sigue tras una tarea
   fallida.
