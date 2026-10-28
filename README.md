@@ -6,6 +6,9 @@
 ![Gradle](https://img.shields.io/badge/Gradle-9.8.2-darkgreen)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
+> [!TIP]
+> ¿Vienes al taller de esta rama? Empieza por [DOJO.md](DOJO.md).
+
 Pruebas de servicios con Serenity BDD y el patrón Screenplay: dos escenarios REST y uno SOAP, con
 las respuestas simuladas por WireMock dentro de los tests. Es la
 [plantilla](https://github.com/cedaniel200/serenity-screenplay-template) aplicada a APIs en lugar de
