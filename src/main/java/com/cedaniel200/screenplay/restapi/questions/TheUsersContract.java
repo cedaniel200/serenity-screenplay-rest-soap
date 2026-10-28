@@ -11,8 +11,8 @@ import java.util.Map;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
 /**
- * Comprueba el contrato de la respuesta y dos valores concretos:
- * la forma de cada usuario y la paginación.
+ * Comprueba el contrato de la respuesta (campos y tipos) y los valores que espera el escenario.
+ * Los datos esperados llegan desde la feature, no se fijan aquí.
  */
 @Subject("The users response respects the agreed contract")
 public class TheUsersContract implements Question<Boolean> {
@@ -20,26 +20,37 @@ public class TheUsersContract implements Question<Boolean> {
     private static final List<String> REQUIRED_FIELDS =
             List.of("id", "email", "first_name", "last_name", "avatar");
 
+    private final int expectedUsers;
+    private final int expectedPage;
+    private final int expectedFirstId;
+
+    public TheUsersContract(int expectedUsers, int expectedPage, int expectedFirstId) {
+        this.expectedUsers = expectedUsers;
+        this.expectedPage = expectedPage;
+        this.expectedFirstId = expectedFirstId;
+    }
+
     @Override
     public Boolean answeredBy(Actor actor) {
-        JsonPath body = lastResponse().body().jsonPath();
-
         if (lastResponse().statusCode() != 200) {
             return false;
         }
-        if (body.getInt("total_pages") != 2) {
+
+        JsonPath body = lastResponse().body().jsonPath();
+        if (body.getInt("page") != expectedPage) {
             return false;
         }
 
         List<Map<String, Object>> users = body.getList("data");
-        if (users == null || users.size() != 6) {
+        if (users == null || users.size() != expectedUsers) {
             return false;
         }
         if (!users.stream().allMatch(TheUsersContract::hasEveryFieldWithTheRightType)) {
             return false;
         }
 
-        return ((Number) users.get(0).get("id")).intValue() == 7;
+        Object firstId = users.get(0).get("id");
+        return firstId instanceof Number && ((Number) firstId).intValue() == expectedFirstId;
     }
 
     private static boolean hasEveryFieldWithTheRightType(Map<String, Object> user) {
@@ -54,7 +65,7 @@ public class TheUsersContract implements Question<Boolean> {
                 .allMatch(field -> user.get(field) instanceof String);
     }
 
-    public static TheUsersContract isRespected() {
-        return new TheUsersContract();
+    public static TheUsersContract isRespected(int expectedUsers, int expectedPage, int expectedFirstId) {
+        return new TheUsersContract(expectedUsers, expectedPage, expectedFirstId);
     }
 }

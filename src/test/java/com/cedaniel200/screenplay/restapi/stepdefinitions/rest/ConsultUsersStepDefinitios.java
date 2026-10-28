@@ -10,17 +10,17 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class ConsultUsersStepDefinitios {
 
-    @When("^consulting the second group of three users\\.$")
-    public void consultingTheSecondGroupOfThreeUsers() {
+    @When("^consulting the page (\\d+) of users$")
+    public void consultingThePageOfUsers(int page) {
         theActorInTheSpotlight().attemptsTo(
-                ConsultTheUsers.ofTheSecondGroup()
+                ConsultTheUsers.ofPage(page)
         );
     }
 
-    @Then("^I should see the users$")
-    public void iShouldSeeTheUsers() {
+    @Then("^I should see (\\d+) users on page (\\d+) with the first id (\\d+)$")
+    public void iShouldSeeUsersOnPageWithTheFirstId(int expectedUsers, int expectedPage, int expectedFirstId) {
         theActorInTheSpotlight().should(
-                seeThat(TheUsersContract.isRespected())
+                seeThat(TheUsersContract.isRespected(expectedUsers, expectedPage, expectedFirstId))
         );
     }
 }

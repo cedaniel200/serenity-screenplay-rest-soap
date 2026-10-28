@@ -22,7 +22,7 @@ public class ConsultTheUsers implements Task {
         );
     }
 
-    public static ConsultTheUsers ofTheSecondGroup() {
-        return instrumented(ConsultTheUsers.class, 2);
+    public static ConsultTheUsers ofPage(int page) {
+        return instrumented(ConsultTheUsers.class, page);
     }
 }
