@@ -1,6 +1,6 @@
-package com.cedaniel200.screenplay.restapi.model;
+package com.cedaniel200.screenplay.restapi.models;
 
-import com.cedaniel200.screenplay.restapi.model.builder.UserBuilder;
+import com.cedaniel200.screenplay.restapi.models.builder.UserBuilder;
 import com.google.gson.annotations.SerializedName;
 
 public class User {

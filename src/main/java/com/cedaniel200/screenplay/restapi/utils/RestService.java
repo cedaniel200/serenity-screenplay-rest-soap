@@ -1,8 +1,8 @@
-package com.cedaniel200.screenplay.restapi.util;
+package com.cedaniel200.screenplay.restapi.utils;
 
 public enum RestService {
 
-    BASE_URL("https://reqres.in/api"),
+    BASE_URL("http://localhost:8089/api"),
     CREATE_USER("/users"),
     CONSULT_USERS("/users?page=%d");
 

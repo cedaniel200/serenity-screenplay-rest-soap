@@ -1,0 +1,10 @@
+services:
+  tests:
+    build: .
+    command:
+      - ./gradlew
+      - test
+      - aggregate
+      - --no-daemon
+    volumes:
+      - ./target:/app/target

@@ -1,7 +1,7 @@
-package com.cedaniel200.screenplay.restapi.model.builder;
+package com.cedaniel200.screenplay.restapi.models.builder;
 
-import com.cedaniel200.screenplay.restapi.model.User;
-import com.cedaniel200.screenplay.restapi.util.Builder;
+import com.cedaniel200.screenplay.restapi.models.User;
+import com.cedaniel200.screenplay.restapi.utils.Builder;
 
 public class UserBuilder implements Builder <User> {
 

@@ -1,10 +1,10 @@
-package com.cedaniel200.screenplay.restapi.task;
+package com.cedaniel200.screenplay.restapi.tasks;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 
-import static com.cedaniel200.screenplay.restapi.util.RestService.CONSULT_USERS;
+import static com.cedaniel200.screenplay.restapi.utils.RestService.CONSULT_USERS;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class ConsultTheUsers implements Task {
@@ -22,7 +22,7 @@ public class ConsultTheUsers implements Task {
         );
     }
 
-    public static ConsultTheUsers ofTheSecondGroup() {
-        return instrumented(ConsultTheUsers.class, 2);
+    public static ConsultTheUsers ofPage(int page) {
+        return instrumented(ConsultTheUsers.class, page);
     }
 }
