@@ -18,10 +18,7 @@ public class CreateUser implements Task {
     @Override
     public <T extends Actor> void performAs(T theActor) {
         theActor.attemptsTo(
-                Post.to(CREATE_USER.toString())
-                        .with(request -> request.header("Content-Type", "application/json")
-                        .body(user)
-                )
+
         );
     }
 

@@ -18,7 +18,7 @@ public class ConsultTheUsers implements Task {
     @Override
     public <T extends Actor> void performAs(T theActor) {
         theActor.attemptsTo(
-                Get.resource(consultUsers)
+
         );
     }
 

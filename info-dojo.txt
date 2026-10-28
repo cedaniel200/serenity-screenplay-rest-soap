@@ -1,0 +1,63 @@
+==============================
+DOJO — implementa las tareas
+==============================
+
+Los tres escenarios están escritos y los servicios simulados funcionan.
+Lo que falta es el cuerpo de las tres tareas:
+
+  src/main/java/com/cedaniel200/screenplay/restapi/tasks/ConsultTheUsers.java
+  src/main/java/com/cedaniel200/screenplay/restapi/tasks/CreateUser.java
+  src/main/java/com/cedaniel200/screenplay/restapi/tasks/SayHello.java
+
+Cada una tiene un `performAs` vacío. Hasta que lo completes, los escenarios fallan.
+
+----------------------
+Servicios simulados
+----------------------
+WireMock arranca dentro del propio test en http://localhost:8089 (puerto fijo).
+No hace falta levantar nada: `./gradlew test` es suficiente.
+
+----------------------
+CONSULT USERS — GET
+----------------------
+Ruta: /api/users?page=2
+La tarea recibe el número de página y construye la ruta con RestService.CONSULT_USERS.
+
+Pista: net.serenitybdd.screenplay.rest.interactions.Get.resource(...)
+
+----------------------
+CREATE USER — POST
+----------------------
+Ruta: /api/users
+Cabecera: Content-Type: application/json
+Cuerpo: el objeto User que recibe la tarea.
+
+Pista: Post.to(...).with(request -> request.header(...).body(...))
+
+----------------------
+SAY HELLO — POST (SOAP)
+----------------------
+Ruta: /services/hello
+Cabeceras:
+  Content-Type: text/xml;charset=UTF-8
+  SOAPAction: ""
+
+Cuerpo:
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:hel="http://learnwebservices.com/services/hello">
+  <soapenv:Body>
+    <hel:HelloRequest>
+      <hel:Name>NOMBRE</hel:Name>
+    </hel:HelloRequest>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+Pista: Post.to(...) con el sobre en el body.
+
+----------------------
+Cómo saber si está bien
+----------------------
+  ./gradlew test
+
+Los tres escenarios deben quedar en verde. Las respuestas simuladas están en
+src/test/resources/mocks/ si quieres ver qué se espera de vuelta.

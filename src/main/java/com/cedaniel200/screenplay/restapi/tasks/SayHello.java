@@ -18,15 +18,7 @@ public class SayHello implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Post.to(SAY_HELLO.toString())
-                        .with(request -> request
-                                .header("Content-Type", "text/xml;charset=UTF-8")
-                                .header("SOAPAction", "\"\"")
-                                .body("<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\""
-                                        + " xmlns:hel=\"http://learnwebservices.com/services/hello\">"
-                                        + "<soapenv:Body><hel:HelloRequest><hel:Name>" + name + "</hel:Name>"
-                                        + "</hel:HelloRequest></soapenv:Body></soapenv:Envelope>")
-                        )
+
         );
     }
 
