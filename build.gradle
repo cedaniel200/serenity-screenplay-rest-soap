@@ -3,21 +3,19 @@ buildscript {
         mavenCentral()
     }
     ext {
-        serenityGradlePluginVersion = '2.4.34'
         serenityVersion = '5.4.1'
         cucumberPlatformVersion = '8.0.4'
         junitPlatformSuiteVersion = '6.1.3'
         assertjVersion = '3.27.7'
         slf4jVersion = '2.0.20'
     }
-    dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityGradlePluginVersion")
-    }
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'net.serenity-bdd.aggregator'
+plugins {
+    id 'java'
+    id 'idea'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '5.4.1'
+}
 
 group = 'com.cedaniel200.screenplay'
 version = '1.0.0'
